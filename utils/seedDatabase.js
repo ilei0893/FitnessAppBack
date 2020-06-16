@@ -8,7 +8,19 @@ const seedDatabase = async () => {
       username: "johndoe98",
       password: "john1998"
     }),
-    
+    Account.create({
+      username: "sally1",
+      password: "sally",
+    }),
+
+    FoodEntry.create({
+      name: "beef",
+      calories:90,
+      fat:1,
+      carbs:19,
+      protein:1,
+      accountId:1
+    }),
     
     FoodEntry.create({
       name: "apple",
@@ -18,24 +30,24 @@ const seedDatabase = async () => {
       protein:1,
       accountId:1
     }),
-    /*
+    
+    FoodEntry.create({
+      name: "chicken",
+      calories:90,
+      fat:1,
+      carbs:19,
+      protein:1,
+      accountId:1
+    }),
+
     ExerciseEntry.create({
       name: "run",
       intensity: "medium",
-      time: 60
+      time: 60,
+      accountId:1
     }),
-    */
-    //------------------------------------
-    //mock account 2
-
-    Account.create({
-      username: "sally1",
-      password: "sally",
-    })
-
-
   ])
-  }
+}
     /*
     FoodEntry.create({
       name: "apple",

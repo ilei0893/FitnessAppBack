@@ -1,22 +1,21 @@
 var express = require("express");
 var router = express.Router();
-const { Account } = require("../database/models");
-const { FoodEntry} = require("../database/models");
-
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  Account.findAll()
-    .then((accounts) => res.json(accounts))
-    .catch((err) => console.log(err));
-});
+const { Account, FoodEntry, ExerciseEntry } = require("../database/models");
 
 
-
-//all food entries:
+//all account entries:
 router.get("/", async (req, res, next) => {
   try {
     // if successful:
-    const account = await Account.findAll( { include: FoodEntry });
+    const account = await Account.findAll({ include: [
+      {
+        model: FoodEntry,
+      },
+      {
+        model: ExerciseEntry,
+      }]
+  });
+    console.log(account);
     // send back the student as a response
     res.status(200).json(account);
   } catch (err) {
@@ -26,9 +25,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-
-
-//food entries by id:
+//account entries by id:
 router.get("/:id", async (req, res, next) => {
   // take the id from params
   const { id } = req.params;

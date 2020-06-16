@@ -1,14 +1,23 @@
-/*v
-
-ar express = require("express");
+var express = require("express");
 var router = express.Router();
 const { ExerciseEntry } = require("../database/models");
 
-/* GET users listing. 
-router.get("/", function (req, res, next) {
-  Account.findAll()
-    .then((accounts) => res.json(accounts))
-    .catch((err) => console.log(err));
+
+//all food entries:
+router.get("/", async (req, res, next) => {
+  try {
+    // if successful:
+    console.log("Hello");
+    const exercise = await ExerciseEntry.findAll();
+    // send back the student as a response
+    res.status(200).json(exercise);
+  } catch (err) {
+    // if error:
+    // handle error
+    next(err);
+  }
 });
+
 module.exports = router;
-*/
+
+
