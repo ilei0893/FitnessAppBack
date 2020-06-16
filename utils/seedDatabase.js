@@ -1,3 +1,4 @@
+
 const { Account } = require("../database/models");
 
 const seedDatabase = async () => {
