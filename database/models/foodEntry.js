@@ -1,11 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const FoodEntry = db.define("food entry", {
-  entryID: {
-    type: Sequelize.INTEGER,
-    primaryKey:true,
-  },
+const FoodEntry = db.define("foodEntry", {
   name: {
     type: Sequelize.TEXT,
     allowNull: false,

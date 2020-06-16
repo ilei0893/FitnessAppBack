@@ -2,10 +2,6 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const ExerciseEntry = db.define("exercise entry", {
-  entryID: {
-    type: Sequelize.INTEGER,
-    primaryKey:true,
-  },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
