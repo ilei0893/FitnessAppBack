@@ -18,5 +18,5 @@ module.exports = {
   Account,
   Entries,
   FoodEntry,
-  ExercsieEntry  
+  ExerciseEntry  
 };

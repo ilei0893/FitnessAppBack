@@ -9,7 +9,7 @@ const Entries = db.define("entry", {
   username: {
     type: Sequelize.STRING,
     allowNull: false,
-  }
+  },
   type: {
     type: Sequelize.STRING,
     allowNull: false,
