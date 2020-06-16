@@ -4,7 +4,7 @@ const db = require("../db");
 const Accounts = db.define("account", {
   username: {
     type: Sequelize.STRING,
-    allowNull: false,
+    primaryKey:true,
   },
   password: {
     type: Sequelize.STRING,
