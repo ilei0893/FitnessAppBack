@@ -1,8 +1,8 @@
-const { Food } = require("../database/models");
+const { FoodEntry } = require("../database/models");
 
 const seedDatabase = async () => {
   await Promise.all([
-    Food.create({
+    FoodEntry.create({
       name: "Chicken",
     }),
   ]);
