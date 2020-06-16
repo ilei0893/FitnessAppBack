@@ -9,12 +9,12 @@ const ExerciseEntry = db.define("exercise entry", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
-  }
+  },
   intensity: {
     type: Sequelize.STRING,
     allowNull: false,
     isIn: [['low', 'medium', 'high']],
-  }
+  },
   time : { //in minutes:
     type: Sequelize.INTEGER,
     allowNull: false,
