@@ -1,21 +1,10 @@
-const { Player } = require("../database/models");
+const { Food } = require("../database/models");
 
 const seedDatabase = async () => {
   await Promise.all([
-    Player.create({
-      firstName: "Kyrie",
-      lastName: "Irving",
-      jerseyNumber: 11,
-    }),
-    Player.create({
-      firstName: "LeBron",
-      lastName: "James",
-      jerseyNumber: 23,
-    }),
-    Player.create({
-      firstName: "Luka",
-      lastName: "Doncic",
-      jerseyNumber: 77,
+    Food.create({
+      name: "Chicken",
+
     }),
   ]);
 };
