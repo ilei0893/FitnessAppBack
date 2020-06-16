@@ -1,10 +1,5 @@
-<<<<<<< HEAD
+
 const { Account, FoodEntry, ExerciseEntry } = require("../database/models");
-
-=======
-
-const { Account } = require("../database/models");
->>>>>>> 49d4638ba97b452d1341ef7e2764e1567571f2a4
 
 const seedDatabase = async () => {
   await Promise.all([
@@ -21,7 +16,7 @@ const seedDatabase = async () => {
       fat:1,
       carbs:19,
       protein:1,
-      AccountId:1
+      accountId:1
     }),
     /*
     ExerciseEntry.create({

@@ -8,13 +8,25 @@ const { FoodEntry } = require("../database/models");
 
 
 /* GET ALL foods listing . */
-router.get("/", function (req, res, next) {
-  FoodEntry.findAll()
-    .then((foodEntry) => res.json(foodEntry))
-    .catch((err) => console.log(err));
+// router.get("/", function (req, res, next) {
+//   FoodEntry.findAll()
+//     .then((foodEntry) => res.json(foodEntry))
+//     .catch((err) => console.log(err));
+// });
+
+//all food entries:
+router.get("/", async (req, res, next) => {
+  try {
+    // if successful:
+    const food = await FoodEntry.findAll();
+    // send back the student as a response
+    res.status(200).json(food);
+  } catch (err) {
+    // if error:
+    // handle error
+    next(err);
+  }
 });
-
-
 
 module.exports = router;
 
@@ -38,3 +50,4 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+*/
