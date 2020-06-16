@@ -1,14 +1,15 @@
 // Here, we can prepare to register our models, set up associations between tables, and generate a barrel file for the models;
 
 const Account = require("./account");
-const Entries = require("./entries");
+//const Entries = require("./entries");
 const FoodEntry = require("./foodEntry");
 const ExerciseEntry = require("./exerciseEntry");
 
-Account.hasMany(Entries);
+Account.hasMany(FoodEntry);
+Account.hasMany(ExerciseEntry);
 
-Entries.hasMany(FoodEntry);
-Entries.hasMany(ExerciseEntry);
+//Entries.hasMany(FoodEntry);
+//Entries.hasMany(ExerciseEntry);
 
 FoodEntry.belongsTo(Account);
 ExerciseEntry.belongsTo(Account);
@@ -16,7 +17,7 @@ ExerciseEntry.belongsTo(Account);
 
 module.exports = {
   Account,
-  Entries,
+  //Entries,
   FoodEntry,
   ExerciseEntry  
 };
