@@ -4,7 +4,6 @@ const seedDatabase = async () => {
   await Promise.all([
     Food.create({
       name: "Chicken",
-
     }),
   ]);
 };
