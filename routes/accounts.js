@@ -25,6 +25,17 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------
 //account entries by id:
 router.get("/:id", async (req, res, next) => {
   // take the id from params
@@ -33,7 +44,14 @@ router.get("/:id", async (req, res, next) => {
   // query the database for a student with matching id
   try {
     // if successful:
-    const account = await Account.findByPk(id, { include: FoodEntry });
+    const account = await Account.findByPk(id, { include: [
+      {
+        model: FoodEntry,
+      },
+      {
+        model: ExerciseEntry,
+      }]
+    });
     console.log(account);
     // send back the student as a response
     res.status(200).json(account);
