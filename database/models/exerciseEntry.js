@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const ExerciseEntry = db.define("exercise entry", {
+const ExerciseEntry = db.define("exerciseEntry", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
