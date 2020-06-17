@@ -4,14 +4,15 @@ var router = express.Router();
 // Subrouters;
 const accountsRouter = require("./accounts");
 //not setting a foodrouter or exerciserouter
-//const foodRouter = require("./foodEntry");
+const foodRouter = require("./foodEntry");
+const exerciseRouter = require("./exerciseEntry")
 
 
 
 // Mount our subrouters to assemble our apiRouter;
 router.use("/accounts", accountsRouter);
-//router.use("/foodEntry", foodRouter);
-
+router.use("/foods", foodRouter);
+router.use("/exercises", exerciseRouter)
 
 
 // Error handling middleware;

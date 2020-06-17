@@ -4,6 +4,7 @@ const { FoodEntry } = require("../database/models");
 
 
 //all food entries:
+// /api/foods
 router.get("/", async (req, res, next) => {
   try {
     // if successful:

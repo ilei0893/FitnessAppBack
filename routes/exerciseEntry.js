@@ -3,7 +3,8 @@ var router = express.Router();
 const { ExerciseEntry } = require("../database/models");
 
 
-//all food entries:
+//all exercises entries:
+// /api/exercises/
 router.get("/", async (req, res, next) => {
   try {
     // if successful:
