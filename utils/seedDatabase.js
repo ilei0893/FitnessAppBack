@@ -16,7 +16,7 @@ const seedDatabase = async () => {
     //mock account 3
     Account.create({
       username: "frank75",
-      password: "frank"
+      password: "frank",
     }),
 
     //food entries:
@@ -26,16 +26,15 @@ const seedDatabase = async () => {
       fat:1,
       carbs:19,
       protein:1,
-      accountId:1
+      usernameId:"johndoe98"
     }),
-    
     FoodEntry.create({
       name: "apple",
       calories:90,
       fat:1,
       carbs:19,
       protein:1,
-      accountId:1
+      usernameId:"johndoe98"
     }),
     
     FoodEntry.create({
@@ -44,7 +43,7 @@ const seedDatabase = async () => {
       fat:3,
       carbs:2,
       protein:30,
-      accountId:1
+      usernameId:"johndoe98"
     }),
     FoodEntry.create({
       name: "spinach",
@@ -52,7 +51,15 @@ const seedDatabase = async () => {
       fat:1,
       carbs:4,
       protein:9,
-      accountId:3
+      usernameId:"sally1"
+    }),
+    FoodEntry.create({
+      name: "spinach",
+      calories:60,
+      fat:1,
+      carbs:4,
+      protein:9,
+      usernameId:"frank75"
     }),
     //-------------------
     //exercise entries:
@@ -60,25 +67,31 @@ const seedDatabase = async () => {
       name: "run",
       intensity: "medium",
       time: 60,
-      accountId:1
+      usernameId:"johndoe98"
     }),
     ExerciseEntry.create({
       name: "run",
       intensity: "medium",
       time: 60,
-      accountId:1
+      usernameId:"frank75"
     }),
     ExerciseEntry.create({
       name: "walk",
       intensity: "low",
       time: 60,
-      accountId:2
+      usernameId:"frank75"
     }),
     ExerciseEntry.create({
       name: "swim",
       intensity: "medium",
       time: 60,
-      accountId:2
+      usernameId:"johndoe98"
+    }),
+    ExerciseEntry.create({
+      name: "bike",
+      intensity: "medium",
+      time: 60,
+      usernameId:"sally1"
     }),
   ])
 }

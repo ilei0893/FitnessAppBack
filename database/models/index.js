@@ -5,8 +5,12 @@ const Account = require("./account");
 const FoodEntry = require("./foodEntry");
 const ExerciseEntry = require("./exerciseEntry");
 
-Account.hasMany(FoodEntry);
-Account.hasMany(ExerciseEntry);
+Account.hasMany(FoodEntry, {
+  foreignKey: 'usernameId'
+});
+Account.hasMany(ExerciseEntry, {
+  foreignKey: 'usernameId'
+});
 // Entries.hasMany(FoodEntry);
 // Entries.hasMany(ExerciseEntry);
 
