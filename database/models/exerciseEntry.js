@@ -16,7 +16,7 @@ const ExerciseEntry = db.define("exerciseEntry", {
     allowNull: false,
     isIn: [[10, 15, 20, 30, 45, 60, 75, 90, 105, 120]]
   },
-  username: {
+  usernameId: {
     type: Sequelize.STRING,
   }
 });

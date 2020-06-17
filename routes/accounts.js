@@ -26,25 +26,15 @@ router.get("/", async (req, res, next) => {
 });
 
 
-
-
-
-
-
-
-
-
-
 //-------------------------------------------------------------------------
 //account entries by id:
-router.get("/:id", async (req, res, next) => {
+router.get("/:username", async (req, res, next) => {
   // take the id from params
-  const { id } = req.params;
-  console.log("Helloooooooo");
+  const { username } = req.params;
   // query the database for a student with matching id
   try {
     // if successful:
-    const account = await Account.findByPk(id, { include: [
+    const account = await Account.findByPk(username, { include: [
       {
         model: FoodEntry,
       },

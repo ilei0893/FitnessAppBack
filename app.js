@@ -33,7 +33,6 @@ const syncDatabase = () => {
       .then(() => seedDatabase())
       .catch((err) => {
         if (err.name === "SequelizeConnectionError") {
-          createLocalDatabase();
           seedDatabase();
         } else {
           console.log(err);
