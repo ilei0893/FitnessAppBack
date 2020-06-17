@@ -73,5 +73,26 @@ router.get("/:username/foodentries/", async (req, res, next) => {
 });
 
 
+//-------------------------------------------------------------------------
+// Route to add a new account to the db
+// /api/accounts/
+router.post("/", async (req, res, next) => {
+  // Take the form data from the request body
+  const {username, password} = req.body;
+  // Create an account object
+  const accountObj = {
+    username: username,
+    password: password
+  };
+  try {
+    // Create a new account on the database
+    const newAccount = await Account.create(accountObj);
+    // send that account as a json to the client
+    res.status(201).send(newAccount);
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = router;
