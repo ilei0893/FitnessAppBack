@@ -4,12 +4,13 @@ const { FoodEntry } = require("../database/models");
 
 
 //all food entries:
+// /api/foods
 router.get("/", async (req, res, next) => {
   try {
     // if successful:
     console.log("Hello");
     const food = await FoodEntry.findAll();
-    // send back the student as a response
+    // send back the foods as a response
     res.status(200).json(food);
   } catch (err) {
     // if error:

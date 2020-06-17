@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
       }]
   });
     console.log(account);
-    // send back the student as a response
+    // send back the accounts as a response
     res.status(200).json(account);
   } catch (err) {
     // if error:
@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:username", async (req, res, next) => {
   // take the id from params
   const { username } = req.params;
-  // query the database for a student with matching id
+  // query the database for all accounts matching username. INCLUDES FOODS AND EXERCISES
   try {
     // if successful:
     const account = await Account.findByPk(username, { include: [
@@ -43,7 +43,7 @@ router.get("/:username", async (req, res, next) => {
       }]
     });
     console.log(account);
-    // send back the student as a response
+    // send back the entries as a response
     res.status(200).json(account);
   } catch (err) {
     // if error:
