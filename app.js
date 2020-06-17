@@ -15,7 +15,6 @@ const helmet = require("helmet");
 const compression = require("compression");
 
 // Utilities;
-const createLocalDatabase = require("./utils/createLocalDatabase");
 const seedDatabase = require("./utils/seedDatabase");
 
 // Our database instance;
