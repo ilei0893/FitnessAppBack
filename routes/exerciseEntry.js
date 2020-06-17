@@ -27,15 +27,22 @@ router.delete("/:usernameId/:id", async (req, res, next) => {
   try {
     // pass the id to the database to find entry to be deleted
     // database would either respond succcess or fail
-    const entry = await ExerciseEntry.findAll({
+    
+    /*const entry = await ExerciseEntry.findAll({
       where:{
         id : idToDelete,
         usernameId : usernameIdToDelete
       }
     })
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",entry);
+    */
+   await ExerciseEntry.destroy({
+    where:{
+      id : idToDelete,
+      usernameId : usernameIdToDelete
+    }
+   });
     // invoke the .destroy() method on the returned entry
-    await entry.destroy();
+    //await entry.destroy();
     // send a success message to the client
     res.sendStatus(204);
   } catch (err) {
