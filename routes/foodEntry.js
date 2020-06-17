@@ -39,7 +39,30 @@ router.delete("/:usernameId/:id", async (req, res, next) => {
   }
 });
 
-
+//-------------------------------------------------------------------------
+// Route to add a new food entry to the db
+// /api/foods/add
+router.post("/add/", async (req, res, next) => {
+  // Take the form data from the request body
+  const {name, calories, fat, carbs, protein, usernameId} = req.body;
+  // Create an food entry object
+  const entryObj = {
+    name: name,
+    calories: calories,
+    fat : fat,
+    carbs : carbs,
+    protein : protein,
+    usernameId : usernameId
+  };
+  try {
+    // Create a new food entry on the database
+    const newEntry = await FoodEntry.create(entryObj);
+    // send that food entry as a json to the client
+    res.status(201).send(newEntry);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
 

@@ -40,4 +40,28 @@ router.delete("/:usernameId/:id", async (req, res, next) => {
   }
 });
 
+//-------------------------------------------------------------------------
+// Route to add a new exercise entry to the db
+// /api/exercises/add
+router.post("/add/", async (req, res, next) => {
+  // Take the form data from the request body
+  const {name, intensity, time, usernameId} = req.body;
+  // Create an exercise entry object
+  const entryObj = {
+    name: name,
+    intensity: intensity,
+    time : time,
+    usernameId : usernameId
+  };
+  try {
+    // Create a new exercise entry on the database
+    const newEntry = await ExerciseEntry.create(entryObj);
+    // send that exercise entry as a json to the client
+    res.status(201).send(newEntry);
+  } catch (err) {
+    next(err);
+  }
+});
+
+
 module.exports = router;
