@@ -19,6 +19,28 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+// Route to handle removing an exercise entry
+router.delete("/:usernameId/:id", async (req, res, next) => {
+  const usernameIdToDelete = req.params.usernameId;
+  const  idToDelete = req.params.id;
+  // get a username and id of exercise entry for deletion
+  try {
+    // pass the id to the database to find entry to be deleted
+    // database would either respond succcess or fail
+    const entry = await ExerciseEntry.findAll({
+      where:{
+        id : idToDelete,
+        usernameId : usernameIdToDelete
+      }
+    })
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",entry);
+    // invoke the .destroy() method on the returned entry
+    await entry.destroy();
+    // send a success message to the client
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
-
-
