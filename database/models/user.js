@@ -3,10 +3,9 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const User = db.define("user", {
-  email: {
+  username: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
+    primaryKey: true
   },
   password: {
     type: Sequelize.STRING,
@@ -50,5 +49,4 @@ const setSaltAndPassword = user => {
 
 User.beforeCreate(setSaltAndPassword);
 User.beforeUpdate(setSaltAndPassword);
-
 module.exports = User;

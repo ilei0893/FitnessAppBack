@@ -1,7 +1,26 @@
-const router = require("express").Router();
+var express = require("express");
+var router = express.Router();
 
-const booksRouter = require("./books");
+// Subrouters;
+const userRouter = require("./users");
+//not setting a foodrouter or exerciserouter
+const foodRouter = require("./foodEntry");
+const exerciseRouter = require("./exerciseEntry")
 
-router.use("/books", booksRouter);
 
+
+// Mount our subrouters to assemble our apiRouter;
+router.use("/users", userRouter);
+router.use("/foods", foodRouter);
+router.use("/exercises", exerciseRouter)
+
+
+// Error handling middleware;
+router.use((req, res, next) => {
+  const error = new Error("Not Found, Please Check URL!");
+  error.status = 404;
+  next(error);
+});
+
+// Export our apiRouter, so that it can be used by our main app in app.js;
 module.exports = router;
