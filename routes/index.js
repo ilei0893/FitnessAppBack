@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 // Subrouters;
-const accountsRouter = require("./accounts");
+const userRouter = require("./users");
 //not setting a foodrouter or exerciserouter
 const foodRouter = require("./foodEntry");
 const exerciseRouter = require("./exerciseEntry")
@@ -10,7 +10,7 @@ const exerciseRouter = require("./exerciseEntry")
 
 
 // Mount our subrouters to assemble our apiRouter;
-router.use("/accounts", accountsRouter);
+router.use("/users", userRouter);
 router.use("/foods", foodRouter);
 router.use("/exercises", exerciseRouter)
 
