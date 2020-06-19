@@ -1,13 +1,13 @@
 var express = require("express");
 var router = express.Router();
-const { Account, FoodEntry, ExerciseEntry } = require("../database/models");
+const { User, FoodEntry, ExerciseEntry } = require("../database/models");
 
 
-//all account entries:
+//all user entries:
 router.get("/", async (req, res, next) => {
   try {
     // if successful:
-    const account = await Account.findAll({ include: [
+    const user = await User.findAll({ include: [
       {
         model: FoodEntry,
       },
@@ -15,9 +15,9 @@ router.get("/", async (req, res, next) => {
         model: ExerciseEntry,
       }]
   });
-    console.log(account);
+    console.log(user);
     // send back the accounts as a response
-    res.status(200).json(account);
+    res.status(200).json(user);
   } catch (err) {
     // if error:
     // handle error
@@ -27,14 +27,14 @@ router.get("/", async (req, res, next) => {
 
 
 //-------------------------------------------------------------------------
-//account entries by id:
+//user entries by id:
 router.get("/:username", async (req, res, next) => {
   // take the id from params
   const { username } = req.params;
   // query the database for all accounts matching username. INCLUDES FOODS AND EXERCISES
   try {
     // if successful:
-    const account = await Account.findByPk(username, { include: [
+    const user = await User.findByPk(username, { include: [
       {
         model: FoodEntry,
       },
@@ -42,9 +42,9 @@ router.get("/:username", async (req, res, next) => {
         model: ExerciseEntry,
       }]
     });
-    console.log(account);
+    console.log(user);
     // send back the entries as a response
-    res.status(200).json(account);
+    res.status(200).json(user);
   } catch (err) {
     // if error:
     // handle error
@@ -74,20 +74,20 @@ router.get("/:username/foodentries/", async (req, res, next) => {
 
 
 //-------------------------------------------------------------------------
-// Route to add a new account to the db
+// Route to add a new user to the db
 // /api/accounts/
 router.post("/", async (req, res, next) => {
   // Take the form data from the request body
   const {username, password} = req.body;
-  // Create an account object
+  // Create an user object
   const accountObj = {
     username: username,
     password: password
   };
   try {
-    // Create a new account on the database
-    const newAccount = await Account.create(accountObj);
-    // send that account as a json to the client
+    // Create a new user on the database
+    const newAccount = await User.create(accountObj);
+    // send that user as a json to the client
     res.status(201).send(newAccount);
   } catch (err) {
     next(err);
