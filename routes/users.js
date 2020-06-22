@@ -74,6 +74,25 @@ router.get("/:username/foodentries/", async (req, res, next) => {
 
 
 //-------------------------------------------------------------------------
+// Route to get exerciseentries associated with a username
+// /api/accounts/username/exerciseentries
+router.get("/:username/exerciseentries/", async (req, res, next) => {
+  const un = req.params.username;
+  // find the entries associated with the username
+  try {
+    const foundUsername = await ExerciseEntry.findAll({
+      where:{
+        usernameId: un
+      }
+    })
+    res.status(200).json(foundUsername);
+  } catch(err){
+    next(err);
+  }
+
+});
+
+//-------------------------------------------------------------------------
 // Route to add a new user to the db
 // /api/accounts/
 router.post("/", async (req, res, next) => {

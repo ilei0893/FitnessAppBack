@@ -14,6 +14,7 @@ const ExerciseEntry = db.define("exerciseEntry", {
   time : { //in minutes:
     type: Sequelize.INTEGER,
     allowNull: false,
+    isNumeric : true,
     isIn: [[10, 15, 20, 30, 45, 60, 75, 90, 105, 120]]
   },
   usernameId: {
