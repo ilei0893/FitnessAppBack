@@ -20,7 +20,7 @@ const FoodEntry = db.define("foodEntry", {
   },
   imageUrl : {
     type: Sequelize.STRING,
-  }
+  },
   usernameId: {
     type: Sequelize.STRING,
   }
