@@ -44,7 +44,7 @@ router.delete("/:usernameId/:id", async (req, res, next) => {
 // /api/foods/add
 router.post("/add/", async (req, res, next) => {
   // Take the form data from the request body
-  const {name, calories, fat, carbs, protein, usernameId} = req.body;
+  const {name, calories, fat, carbs, protein, imageUrl, usernameId} = req.body;
   // Create an food entry object
   const entryObj = {
     name: name,
@@ -52,6 +52,7 @@ router.post("/add/", async (req, res, next) => {
     fat : fat,
     carbs : carbs,
     protein : protein,
+    imageUrl : imageUrl,
     usernameId : usernameId
   };
   try {

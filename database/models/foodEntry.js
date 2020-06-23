@@ -18,6 +18,9 @@ const FoodEntry = db.define("foodEntry", {
   protein: {
     type: Sequelize.INTEGER,
   },
+  imageUrl : {
+    type: Sequelize.STRING,
+  }
   usernameId: {
     type: Sequelize.STRING,
   }
