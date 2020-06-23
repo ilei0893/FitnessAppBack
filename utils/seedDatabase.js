@@ -63,30 +63,35 @@ const seedDatabase = async () => {
       name: "run",
       intensity: "medium",
       time: 60,
+      calories: 200,
       usernameId:"johndoe98"
     })
     await ExerciseEntry.create({
       name: "run",
       intensity: "medium",
       time: 60,
+      calories: 200,
       usernameId:"frank75"
     })
     await ExerciseEntry.create({
       name: "walk",
       intensity: "low",
       time: 60,
+      calories: 200,
       usernameId:"frank75"
     })
     await ExerciseEntry.create({
       name: "swim",
       intensity: "medium",
       time: 60,
+      calories: 200,
       usernameId:"johndoe98"
     })
     await ExerciseEntry.create({
       name: "bike",
       intensity: "medium",
       time: 60,
+      calories: 200,
       usernameId:"sally1"
     })
 }

@@ -45,12 +45,13 @@ router.delete("/:usernameId/:id", async (req, res, next) => {
 // /api/exercises/add
 router.post("/add/", async (req, res, next) => {
   // Take the form data from the request body
-  const {name, intensity, time, usernameId} = req.body;
+  const {name, intensity, time, calories, usernameId} = req.body;
   // Create an exercise entry object
   const entryObj = {
     name: name,
     intensity: intensity,
     time : time,
+    calories : calories,
     usernameId : usernameId
   };
   try {
