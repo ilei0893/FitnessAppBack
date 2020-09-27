@@ -10,7 +10,6 @@ Backend for our fitness App.
 * Express - version 4.16.1
 * Sequelize - version 5.21.12
 * pg - version 8.2.1
-* 
 
 ## Setup
 Clone this repository and our [frontend](https://github.com/ilei0893/FitnessAppFront) repository
