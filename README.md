@@ -1,48 +1,23 @@
-# ExpressJS - Starter Code
+# FitnessAppBack
+Backend for our fitness App. 
+**This project requires both _FitnessAppFront_ and _FitnessAppBack_ repositories running at the same time.**
+## Table of contents
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Usage](#usage)
 
-You can either:
+## Technologies
+* Express - version 4.16.1
+* Sequelize - version 5.21.12
+* pg - version 8.2.1
+* 
 
-- [Fork and/or clone this repo as a starting point](#Clone-repo)
-- [Use Express Generator and refactor your code](#Express-Generator)
+## Setup
+Clone this repository and our [frontend](https://github.com/ilei0893/FitnessAppFront) repository
 
-## Clone repo
-
-Clone the repo and set up with your own GitHub account
-
-
-## Express Generator
-You can use this Express Generator command, indicating the directory to build your project in instead of `my-app`:
-```shell
-npx express-generator --no-view --git my-app
+## Usage
+For Windows users:
 ```
-It will not set a template engine (no need since you're creating an API). It will also create a `.gitignore` file for you.
-
-Move into the directory and install dependencies
-```shell
-cd my-app
 npm install
-```
-
-This is a good point to initialize a git repository and make your initial commit.
-
-Install these dependencies via `npm install`
-```shell
-npm i compression dotenv helmet pgtools sequelize
-```
-
-
-## Nodemon
-I recommend installing `nodemon`
-```shell
-npm i -g nodemon
-```
-Add the following to the list of scripts in `package.json`:
-```json=
-"dev": "nodemon ./bin/www"
-```
-
-Nodemon will automatically reload the server when file changes are detected.
-
-```shell
-npm run dev
+npm run dev_windows
 ```
